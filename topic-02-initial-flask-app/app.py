@@ -44,4 +44,4 @@ def get_list():
 #     rows = cursor.fetchall()
 #     for row in rows:
 #         print(row)
-#     return render_template("list.html", rows=rows)      
+#     return render_template("list.html", rows=rows)       
