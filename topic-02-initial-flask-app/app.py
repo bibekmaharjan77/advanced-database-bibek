@@ -15,13 +15,10 @@ def get_index():
 @app.route("/hello", methods=["GET"]) # This is a 'decoration' --connects routes to function
 @app.route("/hello/<name>", methods=["GET"]) # This is a 'decoration' --connects routes to function
 def get_hello(name = "world"):
-
     data = [
         {"name":"Bibek","age":26},
         {"name":"Sujan","age":29},
     ]
-
-
     return render_template("hello.html", data=data, prof={"name":name, "title":"Dr."})
     # return render_template("hello.html", name=name)
     #return("hello " + name + "!")
@@ -30,13 +27,21 @@ def get_hello(name = "world"):
 def get_bye():
     return("Bye")
 
-@app.route("/list", methods=['GET'])
+@app.route("/list", methods=["GET"])
 def get_list():
-    cursor = connection.cursor
+    cursor = connection.cursor()
     #fetching records
-    cursor.execute("select * from pets where type = ?",("dog",)) #in tuple, always put a comma
+    cursor.execute("""select * from pets where type = ?""",("dog",)) #in tuple, always put a comma
     rows = cursor.fetchall()
     for row in rows:
         print(row)
     return render_template("list.html", rows=rows)
     
+# @app.route("/list", methods=["GET"])
+# def get_list():
+#     cursor = connection.cursor()
+#     cursor.execute("""select * from pets where type=?""",("dog",))
+#     rows = cursor.fetchall()
+#     for row in rows:
+#         print(row)
+#     return render_template("list.html", rows=rows)     

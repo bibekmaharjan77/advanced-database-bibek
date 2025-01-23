@@ -1,11 +1,11 @@
 <html>
-    <h1> LIST</h1>
+    <h3>List:</h3>
     <table>
         <tr>
             <th>Name</th>
-            <th>kind</th>
-            <th>age</th>
-            <th>Name</th>
+            <th>Kind</th>
+            <th>Age</th>
+            <th>Owner</th>
         </tr>
         {% for item in rows %}
         <tr>
@@ -15,6 +15,5 @@
             <td>{{ item[4] }}</td>
         </tr>
         {% endfor %}
-        
     </table>
 </html>
