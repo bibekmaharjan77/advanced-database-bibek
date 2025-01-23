@@ -1,0 +1,12 @@
+<html>
+    <h1> This is a web page created by {{prof["title"]}} {{prof["name"]}}</h1>
+    <table>
+        
+        {% for item in data %}
+        <tr>
+            <td>{{ item["name"] }}</td><td>{{ item["age"] }}</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</html>
